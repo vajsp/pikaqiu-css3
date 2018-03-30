@@ -23,10 +23,8 @@ export default {
             enableHtml: false,
             fullStyle: [
                 `/*
-* Inspired by http://strml.net/
-* 大家好，我是方方
-* 二月了，好多公司都在招聘，你是不是也在准备简历呀。
-* 说做就做，我也来写一份简历！
+* 大家好，我是渣渣辉
+* 今天使用css画一个可爱的皮卡丘
 */
 
 /* 首先给所有元素加上过渡效果 */
@@ -69,7 +67,7 @@ html{
           transform: rotateY(10deg) translateZ(-100px) ;
 }
 
-/* 接下来我给自己准备一个编辑器 */
+/* 接下来我给自己准备一个画板 */
 .resumeEditor{
   position: fixed; right: 0; top: 0;
   padding: .5em;  margin: .5em;
@@ -77,181 +75,183 @@ html{
   border: 1px solid;
   background: white; color: #222;
   overflow: auto;
+  background: #FFE600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 首先初始化样式 */
+* {
+  margin: 0;
+  padding: 0;
 }
 
 * {
-            margin: 0;
-            padding: 0;
-        }
+  box-sizing: border-box;
+}
 
-        * {
-            box-sizing: border-box;
-        }
+*::before {
+  box-sizing: border-box;
+}
 
-        *::before {
-            box-sizing: border-box;
-        }
+*::after {
+  box-sizing: border-box;
+}
 
-        *::after {
-            box-sizing: border-box;
-        }
+#container {
+  height: 300px;
+  width: 460px;
+  position: relative;
+}
 
-        .resumeEditor {
-            background: #FFE600;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+/* 我们开始画鼻子 */
+#nose {
+  position: absolute;
+  left: 50%;
+  margin-left: -15px;
+  top: 100px;
+  border: 15px solid transparent;
+  z-index: 2;
+  border-radius: 50%;
+  border-top-color: black;
 
-        #container {
-            height: 300px;
-            width: 460px;
-            position: relative;
-        }
+}
 
-        #nose {
-            position: absolute;
-            left: 50%;
-            margin-left: -15px;
-            top: 100px;
-            border: 15px solid transparent;
-            z-index: 2;
-            border-radius: 50%;
-            border-top-color: black;
 
-        }
+/* 我们开始画眼睛 */
+.eye {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: #2E2E2E;
+  border: 2px solid black;
+  border-radius: 30px;
+  top: 65px;
+}
 
-        #nose:hover {
-            animation: 0.1s xxx 0s infinite alternate;
-        }
+.eye::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: white;
+  border-radius: 15px;
+  top: 0;
+  position: absolute;
+  left: 6px;
+  border: 2px solid black;
+}
 
-        .eye {
-            position: absolute;
-            width: 60px;
-            height: 60px;
-            background: #2E2E2E;
-            border: 2px solid black;
-            border-radius: 30px;
-            top: 65px;
-        }
+.eye-left {
+  right: 50%;
+  margin-right: 90px;
+}
 
-        .eye::before {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 30px;
-            background: white;
-            border-radius: 15px;
-            top: 0;
-            position: absolute;
-            left: 6px;
-            border: 2px solid black;
-        }
+.eye-right {
+  left: 50%;
+  margin-left: 90px;
+}
 
-        .eye-left {
-            right: 50%;
-            margin-right: 90px;
-        }
+/* 开始画嘴巴 */
+.upperLip {
+  position: absolute;
+  top: 110px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
 
-        .eye-right {
-            left: 50%;
-            margin-left: 90px;
-        }
+.upperLip::before {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 30px;
+  border: 3px solid black;
+  border-top: none;
+  border-right: none;
+  border-bottom-left-radius: 50px 30px;
+  transform: rotateZ(-20deg);
+  background: #FFE600;
+}
 
-        .upperLip {
-            position: absolute;
-            top: 110px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            z-index: 1;
-        }
+.upperLip::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 30px;
+  border: 3px solid black;
+  border-top: none;
+  border-left: none;
+  border-bottom-right-radius: 50px 30px;
+  transform: rotateZ(20deg);
+  background: #FFE600;
+}
 
-        .upperLip::before {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 30px;
-            border: 3px solid black;
-            border-top: none;
-            border-right: none;
-            border-bottom-left-radius: 50px 30px;
-            transform: rotateZ(-20deg);
+.lowerLip-wrapper {
+  position: absolute;
+  width: 100%;
+  top: 120px;
+  height: 200px;
+  overflow: hidden;
+}
 
-            background: #FFE600;
-        }
+.lowerLip {
+  position: absolute;
+  border: 5px solid black;
+  width: 200px;
+  bottom: 0;
+  height: 1800px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top: none;
+  border-bottom-left-radius: 100px 900px;
+  border-bottom-right-radius: 100px 900px;
+  border-top-left-radius: 100px 100px;
+  border-top-right-radius: 100px 100px;
+  background: #FF485F;
+  box-shadow: inset 0 1610px 0 20px #9B000A;
+}
 
-        .upperLip::after {
-            content: '';
-            display: block;
-            width: 80px;
-            height: 30px;
-            border: 3px solid black;
-            border-top: none;
-            border-left: none;
-            border-bottom-right-radius: 50px 30px;
-            transform: rotateZ(20deg);
+/* 开始画脸蛋 */
+.face {
+  border: 3px solid black;
+  position: absolute;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  top: 160px;
+  background: #FF0000;
 
-            background: #FFE600;
-        }
+}
 
-        .lowerLip-wrapper {
-            position: absolute;
-            width: 100%;
-            top: 120px;
-            height: 200px;
-            overflow: hidden;
-        }
+.face-left {
+  right: 50%;
+  margin-right: 130px;
+}
 
-        .lowerLip {
-            position: absolute;
-            border: 5px solid black;
-            width: 200px;
-            bottom: 0;
-            height: 1800px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-top: none;
-            border-bottom-left-radius: 100px 900px;
-            border-bottom-right-radius: 100px 900px;
-            border-top-left-radius: 100px 100px;
-            border-top-right-radius: 100px 100px;
-            background: #FF485F;
-            box-shadow: inset 0 1610px 0 20px #9B000A;
-        }
+.face-right {
+  left: 50%;
+  margin-left: 130px;
+}
 
-        .face {
-            border: 3px solid black;
-            position: absolute;
-            width: 90px;
-            height: 90px;
-            border-radius: 45px;
-            top: 160px;
-            background: #FF0000;
+/* 最后小鼻子动起来 */
+@keyframes xxx {
+  0% {
+      transform: rotateZ(-3deg);
+  }
+  100% {
+      transform: rotateZ(3deg);
+  }
+}
 
-        }
+#nose {
+  animation: 0.1s xxx 0s infinite alternate;
+}
 
-        .face-left {
-            right: 50%;
-            margin-right: 130px;
-        }
-
-        .face-right {
-            left: 50%;
-            margin-left: 130px;
-        }
-
-        @keyframes xxx {
-            0% {
-                transform: rotateZ(-3deg);
-            }
-            100% {
-                transform: rotateZ(3deg);
-            }
-        }
-
-/* 好了，我开始写简历了 */
+/* 好了，一只可爱的皮卡丘送给你 */
 
 
 `
