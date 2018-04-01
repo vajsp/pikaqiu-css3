@@ -40,18 +40,4 @@ to {
 *{box-sizing: border-box;}
 *::before{box-sizing: border-box;}
 *::after{box-sizing: border-box;}
-#app[data-v-44bd1066] {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    min-height: 100vh;
-    position: relative;
-}
-html[data-v-44bd1066] {
-    min-height: 100vh;
-}
-*[data-v-44bd1066] {
-    box-sizing: border-box;
-}
-
-/*# sourceMappingURL=app.7767f625ada4669f4ff1a984ea6f6de6.css.map*/
+/*# sourceMappingURL=app.a2fd2a3d55201c68e47222fe18f8e232.css.map*/
