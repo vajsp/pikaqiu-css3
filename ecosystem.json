@@ -1,0 +1,29 @@
+{
+    "apps": [
+        {
+            "name": "pikaiqiu",
+            "script": "app.js",
+            "watch": true,
+            "env": {
+                "COMMON_VARIABLE": "true"
+            },
+            "env_production": {
+                "NODE_ENV": "production"
+            }
+        }
+    ],
+    "deploy": {
+        "production": {
+            "user": "manager",
+            "host": ["47.104.17.73"],
+            "port": "22",
+            "ref": "origin/master",
+            "repo": "git@github.com:vajsp/pikaqiu-css3.git",
+            "path": "/www/pikaqiu/production",
+            "ssh_options": "StrictHostKeyChecking=no",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    }
+}
